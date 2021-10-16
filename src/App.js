@@ -1,5 +1,8 @@
 import React from 'react';
+import styled from "styled-components"
 import './App.css';
+import Sidebar from './components/Sidebar'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,11 +16,15 @@ function App() {
     <div className="app">
       <Router>
       <>
+      <Header/>
+      <AppBody>
+        <Sidebar/>
         <Switch>
           <Route path="/" exact>
-            <Header/>
+           {/* Chat */}
           </Route>
         </Switch>
+        </AppBody>
       </>
     </Router>
 
@@ -26,3 +33,8 @@ function App() {
 }
 
 export default App;
+
+const AppBody = styled.div`
+  display: flex;
+  height: 100vh;
+`;
