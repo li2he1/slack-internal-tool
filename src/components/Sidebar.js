@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 import { useCollection } from 'react-firebase-hooks/firestore'
-import { db } from '../firebase'
+import { db,auth } from '../firebase'
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 import {
     FiberManualRecord,
@@ -20,15 +21,14 @@ import {
 import SidebarOption from './SidebarOption';
 export default function Sidebar() {
     const [channels, loading, error] = useCollection(db.collection('rooms'));
-    console.log(channels)
-
+    const [user] = useAuthState(auth)
     return (
         <SidebarContainer>
             <SidebarHeader>
                 <SidebarInfo>
                     <h2>Company Internal Panel</h2>
                     <h3><FiberManualRecord />
-                        Peter He
+                        {user?.displayName}
                     </h3>
                 </SidebarInfo>
                 <Create />
