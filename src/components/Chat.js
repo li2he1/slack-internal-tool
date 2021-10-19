@@ -8,8 +8,7 @@ import { useSelector } from 'react-redux'
 import { selectRoomId } from '../features/appSlice'
 import CharInput from './CharInput';
 import { useCollection } from 'react-firebase-hooks/firestore'
-import { auth,db } from '../firebase'
-import { useAuthState } from 'react-firebase-hooks/auth'
+import { db } from '../firebase'
 import Message from './Message';
 
 function Chat() {
